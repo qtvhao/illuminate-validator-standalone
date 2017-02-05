@@ -1,6 +1,6 @@
 {
-  "name": "haonx/illuminate/illuminate-validator-standalone-jquery-validation-integrated",
-  "description": "description_text",
+  "name": "haonx/validation",
+  "description": "jquery-validation-integrated",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
@@ -8,5 +8,14 @@
       "name": "Nghiem Xuan Hao",
       "email": "qtvhao@gmail.com"
     }
-  ]
+  ],
+  "require": {
+    "illuminate/validation": "v5.4.9",
+    "symfony/translation":"3.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Haonx\\Validation\\": "haonx/validation/"
+    }
+  }
 }
