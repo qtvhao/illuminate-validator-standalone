@@ -1,0 +1,12 @@
+{
+  "name": "haonx/illuminate/illuminate-validator-standalone-jquery-validation-integrated",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Nghiem Xuan Hao",
+      "email": "qtvhao@gmail.com"
+    }
+  ]
+}
