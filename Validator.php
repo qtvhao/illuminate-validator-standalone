@@ -13,7 +13,13 @@ use Symfony\Component\Translation\Loader\ArrayLoader;
 use Symfony\Component\Translation\MessageSelector;
 use Haonx\Validation\Translator as SymfonyTranslator;
 
-class Validator
+/**
+ * Class Validator
+ * @package Haonx\Validation
+ * @method bool fails
+ * @mixin \Illuminate\Validation\Validator
+ */
+class Validator extends Factory
 {
     public static $lang = [
         'en' => [
@@ -134,14 +140,22 @@ class Validator
 
         ]
     ];
+    public static $instance = null;
 
-    public static function make()
+    public function __construct()
     {
         $translator = new SymfonyTranslator('en_US', new MessageSelector());
         $translator->addLoader('array', new ArrayLoader());
         $translator->addResource('array', static::$lang['en'], 'en_US');
-        $validator = new Factory($translator);
+        parent::__construct($translator);
+    }
 
-        return $validator;
+    public static function getInstance()
+    {
+        if(self::$instance && self::$instance instanceof self){
+            return self::$instance;
+        }
+
+        return new static();
     }
 }
