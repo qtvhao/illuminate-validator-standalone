@@ -8,11 +8,10 @@
 
 namespace Haonx\Validation;
 
-use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Validation\Factory;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 use Symfony\Component\Translation\MessageSelector;
-use Symfony\Component\Translation\Translator as SymfonyTranslator;
+use Haonx\Validation\Translator as SymfonyTranslator;
 
 class Validator
 {
@@ -141,7 +140,6 @@ class Validator
         $translator = new SymfonyTranslator('en_US', new MessageSelector());
         $translator->addLoader('array', new ArrayLoader());
         $translator->addResource('array', static::$lang['en'], 'en_US');
-        /** @var Translator $translator */
         $validator = new Factory($translator);
 
         return $validator;
