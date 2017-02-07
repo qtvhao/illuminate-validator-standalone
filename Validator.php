@@ -13,5 +13,15 @@ class Validator extends \Illuminate\Validation\Validator
 {
     public function getRulesForJqueryValidation()
     {
+        foreach ($this->rules as $attribute => $rules) {
+            foreach ($rules as $rule) {
+                list($rule, $parameters) = ValidationRuleParser::parse($rule);
+                if ($rule == '') {
+                    return;
+                }
+                print_r($rule);
+                print_r($parameters);
+            }
+        }
     }
 }
